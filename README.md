@@ -1,48 +1,92 @@
-# 114-2 APP 開發
+# 114-2 APP 開發 - 期末專題 (海事與海洋應用)
 
-## 目錄
-- [課程資訊](#課程資訊)
-- [課程說明](#課程說明)
-- [作業繳交方式](#作業繳交方式)
-- [課程進度表](#課程進度表)
-- [小考說明](#小考說明)
-- [期末專題](#期末專題)
-- [課程工具與教材對應表](#課程工具與教材對應表)
-- [評分比例](#評分比例)
-- [Git 基本流程](#git-基本流程)
+## 專題概述
+本專案為「114-2 APP 開發」課程的期末專題模板。本學期的專題主題為**「海事與海洋」**，請各組發揮創意，結合本學期學到的 Android 開發技術（UI 佈局、Room 資料庫、網路 API 串接、Google Maps 定位等）與 AWS 雲端後端服務，開發一款具備實際應用價值的 Android App。
 
 ---
 
-## 課程資訊
-| 項目 | 說明 |
-|------|------|
-| 課程名稱 | APP 開發 |
-| 學期 | 114 學年度第 2 學期 |
-| 課程 GitHub | [114-2_APPDEV 主頁](https://github.com/pychang-ai/114-2_APPDEV/blob/main/README.md) ｜ [期末專題規範](https://github.com/pychang-ai/114-2_APPDEV/blob/main/README.md#%E6%9C%9F%E6%9C%AB%E5%B0%88%E9%A1%8C) |
-| 授課對象 | 大三以上 |
-| 每週上課 | 3 小時 |
-| 教科書/教材 | 1. [GeeksforGeeks: Java Tutorial](https://www.geeksforgeeks.org/java/java/) (W1-W6)<br>2. 依據課程教學大綱 (W7-W18) |
-| 實作環境 | 第 1-6 週：VS Code + Java Extension (或線上編譯器)<br>第 7 週起：本機端 Android Studio、AWS EC2 (後端服務) |
+## 🚀 組長第一步：如何使用此模板
+1. 點選本頁面右上角的 **「Use this template」** > **「Create a new repository」**。
+2. Repository name 請命名為：`114-2_APP-G01`（請將 `01` 替換為你們的組別編號）。
+3. 隱私權設定請保持 **Public**。
+4. 建立後，進入 Settings > Collaborators，邀請以下成員加入（權限設為 Write）：
+   * 所有小組成員
+   * 授課教師與助教帳號
 
-## 課程說明
-本課程分為兩大階段。由於設備考量與技術打底，**第一階段（第 1-6 週）將專注於 Java 物件導向程式設計 (OOP) 的核心觀念**，涵蓋類別與物件、封裝、繼承、多型與介面，這將為後續的 App 開發打下堅實的邏輯基礎。**第二階段（第 7 週起）將正式進入 Android App 開發**，涵蓋 UI 佈局、生命週期、資料儲存與網路 API 串接。
+---
 
-課程後期將結合 AWS EC2 建立專屬後端服務，並於第 10 週起導入 AI 輔助開發流程。我們將學習 Prompt Engineering 技巧，掌握如何對 ChatGPT、Copilot 等 AI 工具下達有效指令，輔助程式碼撰寫、架構優化與除錯，核心原則為「先理解再使用」。
+## 📁 專案資料夾結構
 
-## 作業繳交方式
-本課程採用業界標準的 **Fork + Pull Request** 流程繳交作業：
-1. Fork 本 Repo 到你的 GitHub 帳號。
-2. 在你的 Fork 中建立每週資料夾（如 `week01/`）並完成作業。
-3. 發 Pull Request 回本 Repo 繳交。
+請依照以下結構存放你們的專題檔案，以利期末評分與 AI 自動化貢獻度分析：
 
-## 課程進度表
+```text
+├── README.md                 ← 本說明檔（各組請替換為你們的 App 介紹）
+├── proposal/                 ← 專題提案繳交區
+│   └── proposal.md           
+├── my-topics/                ← 個人題目探索區 (第 4 週繳交)
+│   ├── topic_A11218001.md
+│   └── topic_A11218002.md
+├── app/                      ← Android Studio 專案原始碼放這裡
+│   ├── src/
+│   ├── build.gradle
+│   └── ...
+├── backend/                  ← AWS EC2 後端 API 程式碼 (若有使用)
+│   ├── app.py / index.js
+│   └── requirements.txt
+└── docs/                     ← 期末報告與發表文件
+    ├── report.md             ← 期末書面報告
+    └── slides.pdf            ← 期末發表投影片
+```
 
-### 第一階段：Java OOP 核心基礎 (對應 GeeksforGeeks 教材)
-| 週次 | 教學內容 | 對應 GfG 網頁主題與連結 | 作業與專題進度 |
-|------|---------|------------------------|---------------|
-| **W1** | **課程導論與 Java 環境建置**<br>Git 操作。Java 基本語法：資料型態、變數、運算子。 | - [Java Basics](https://www.geeksforgeeks.org/java-basics/)<br>- [Java Operators](https://www.geeksforgeeks.org/operators-in-java/) | 建立 GitHub 帳號、完成首次 Fork+PR。 |
-| **W2** | **流程控制與陣列**<br>If-else、Switch、迴圈 (for/while)、陣列、String 處理。 | - [Java Flow Control](https://www.geeksforgeeks.org/flow-control-in-java/)<br>- [Java Arrays](https://www.geeksforgeeks.org/arrays-in-java/)<br>- [Java String](https://www.geeksforgeeks.org/strings-in-java/) | 作業：實作基礎演算法（如九九乘法表、陣列處理）。 |
-| **W3** | **類別與物件 (Classes & Objects)**<br>OOP 精神、定義 Class、建立 Object、屬性、方法、建構子。 | - [Java OOPs Concepts](https://www.geeksforgeeks.org/object-oriented-programming-oops-concept-in-java/)<br>- [Classes & Objects](https://www.geeksforgeeks.org/classes-objects-java/) | **專題分組、建立 Repo**。<br>作業：設計「海洋生物」類別並實例化。 |
-| **W4** | **封裝與繼承 (Encapsulation & Inheritance)** + **小考 1**<br>Access Modifiers、`extends`、`super` 關鍵字。 | - [Java Encapsulation](https://www.geeksforgeeks.org/encapsulation-in-java/)<br>- [Java Inheritance](https://www.geeksforgeeks.org/inheritance-in-java/) | **個人專題題目探索**。<br>作業：實作海洋生物繼承架構。 |
-| **W5** | **多型 (Polymorphism)**<br>方法多載 (Overloading)、方法覆寫 (Overriding)、`final`。 | - [Java Polymorphism](https://www.geeksforgeeks.org/polymorphism-in-java/) | **決定題目、繳交專題提案**。<br>作業：利用多型實作生物移動方式。 |
-| **W6** | **抽象、介面與例外處理**<br>Abstract class、Interface (`implements`)、Try-catch。 | - [Java Abstraction](https://www.geeksforgeeks.org/abstraction-in-java/)<br>- [Java Interfaces](
+---
+
+## 💡 專題題目方向參考
+
+各組可從以下方向延伸，或自行發想與「海事、海洋、漁業、航運、水上活動」相關的題目：
+
+**1. 航運物流與船舶追蹤**
+* **港口船舶即時動態 App**：串接 AIS 資料，在地圖上顯示周邊船舶位置，並可推播特定航班進港通知。
+* **碼頭貨櫃查詢導航**：結合 Google Maps，引導貨車司機前往正確的碼頭與貨櫃儲位。
+
+**2. 海洋休閒與水上安全**
+* **衝浪/海釣海象預報 App**：整合氣象署資料，顯示潮汐、風浪，並可設定「最佳浪況」推播提醒。
+* **海上緊急求救定位 App**：一鍵獲取當前精確 GPS 座標，透過後端 API 快速發送給救援單位。
+
+**3. 海洋環境保護與社群**
+* **淨灘熱點標記與揪團 App**：發現海洋廢棄物時拍照標記 GPS 上傳，並可在 App 內發起淨灘活動。
+* **海洋生物圖鑑與紀錄 App**：內建 Room 資料庫圖鑑，使用者可拍照上傳自己遇見的海洋生物並在地圖上打卡。
+
+**4. 漁業資訊與市場**
+* **當日漁市報價走勢 App**：串接漁產品交易行情 API，展示今日價格並繪製歷史價格走勢圖。
+
+---
+
+## 🔗 推薦公開資料來源 (Open Data)
+
+開發 App 需要真實資料，請善用以下免費 API 與資料集：
+
+| 資料來源 | 網址 | 可應用資料 |
+|---------|------|----------|
+| 政府資料開放平臺 | [data.gov.tw](https://data.gov.tw/) | 漁產品交易行情、海岸淨灘資訊 |
+| 中央氣象署 | [opendata.cwa.gov.tw](https://opendata.cwa.gov.tw/) | 潮汐預報、近海海面天氣預報、波浪觀測 |
+| 交通部航港局 | [motcmpb.gov.tw](https://www.motcmpb.gov.tw/) | 船舶進出港即時資訊、航班資訊 |
+| MarineTraffic | [marinetraffic.com](https://www.marinetraffic.com/) | 全球船舶 AIS 軌跡資料 (需申請 API) |
+
+---
+
+## 🎯 專題核心技術要求 (評分標準)
+
+為確保專題具備一定的技術深度，你們的 App 必須**至少包含以下 4 項技術實作**：
+
+- [ ] **多頁面與 UI 佈局**：使用 RecyclerView 呈現動態列表，並有流暢的 Activity/Fragment 切換。
+- [ ] **本機資料儲存**：使用 Room Database 或 SharedPreferences 儲存使用者設定或最愛清單。
+- [ ] **網路 API 串接**：使用 Retrofit 抓取外部 JSON 資料並正確解析呈現。
+- [ ] **硬體或地圖功能**：成功呼叫相機、GPS 定位或整合 Google Maps API。
+- [ ] **雲端後端整合**：(加分項) 成功串接部署於 AWS EC2 的自建後端 API 或資料庫。
+
+## 📅 重要時程
+* **第 3 週**：組長建立此 Repo，並加入所有組員。
+* **第 4 週**：每位組員於 `my-topics/` 提出個人構想。
+* **第 5 週**：小組討論決議，完成並繳交 `proposal/proposal.md`。
+* **第 17 週**：繳交期末報告 `docs/report.md` 與投影片。
+* **第 18 週**：期末實機 Demo 與口頭發表。
